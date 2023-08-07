@@ -1,13 +1,14 @@
-import { Body } from "@nestjs/common";
+import { Body, Injectable } from "@nestjs/common";
 import { UserDto } from "./user.dto";
 import { plainToClass } from "class-transformer";
 import { UsersRepository } from "./users.repository";
 
+@Injectable()
 export class UsersService {
-    private userRepository: UsersRepository;
-    constructor(repository) {
-        this.userRepository = repository;
-    }
+    // private userRepository: UsersRepository;
+    // constructor(repository) {
+    //     this.userRepository = repository;
+    // }
     createUser(user: UserDto): UserDto  {
         user.id = "1";
         user.createdAt = new Date();
