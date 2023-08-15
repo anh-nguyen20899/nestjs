@@ -1,4 +1,4 @@
-import { Body, Injectable } from "@nestjs/common";
+import { Body, Inject, Injectable } from "@nestjs/common";
 import { UserDto } from "./user.dto";
 import { plainToClass } from "class-transformer";
 import { UsersRepository } from "./users.repository";
@@ -6,7 +6,7 @@ import { StoreService } from "store/store.service";
 
 @Injectable()
 export class UsersService {
-    constructor(private readonly _storeService: StoreService) {
+    constructor(@Inject("STORE_SERVICE") private readonly _storeService: StoreService) {
 
     }
     createUser(user: UserDto): UserDto  {

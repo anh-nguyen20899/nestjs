@@ -4,9 +4,9 @@ import { UsersService } from "./users.service";
 import { StoreModule } from "store/store.module";
 
 @Module({
-    imports: [StoreModule.register({
-        dirName: "storage",
-        fileName: "user.json"
+    imports: [
+    StoreModule.forFeature({
+        fileName: "users.json"
     })],
     controllers: [UsersController],
     providers: [UsersService]
